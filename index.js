@@ -1,7 +1,14 @@
 const express = require('express');
-
+const mongoose = require('mongoose');
+require('dotenv/config');
+const bodyParser = require('body-parser');
 const app = express();
 
+app.use(bodyParser.json());
+
+mongoose.connect(process.env.DB_URL, { useNewUrlParser: true }, () => {
+    console.log('deuboa');
+});
 
 app.get('/', (req, res) => {
     res.send('req');
