@@ -6,7 +6,7 @@ const app = express();
 
 app.use(bodyParser.json());
 
-mongoose.connect(process.env.DB_URL, { useNewUrlParser: true }, () => {
+mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
     console.log('deuboa');
 });
 
