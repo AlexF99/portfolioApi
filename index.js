@@ -6,9 +6,11 @@ const app = express();
 
 app.use(bodyParser.json());
 
-mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
-    console.log('deuboa');
-});
+mongoose.connect('mongodb://localhost:27017/', {
+    dbName: 'portfolio',
+    useNewUrlParser: true,
+    useUnifiedTopology: true 
+}, err => err ? console.log(err) : console.log('Connected to database'));
 
 app.get('/', (req, res) => {
     res.send('req');
